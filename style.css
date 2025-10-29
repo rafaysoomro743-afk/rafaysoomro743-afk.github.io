@@ -1,4 +1,3 @@
-/* --- 1. Basic Setup (Reset aur Body) --- */
 * {
     margin: 0;
     padding: 0;
@@ -10,22 +9,18 @@ html {
 }
 
 body {
-    /* NAYA FONT */
     font-family: 'Roboto', Arial, sans-serif;
     background-color: #1a1a1a;
     color: #ffffff;
     line-height: 1.6;
 }
 
-/* NAYE FONTS headings ke liye */
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Poppins', sans-serif;
-    font-weight: 700; /* Bold heading */
-    line-height: 1.3; /* Heading line height */
+    font-weight: 700;
+    line-height: 1.3;
 }
 
-
-/* --- 2. Header aur Navigation Bar --- */
 header {
     background-color: #000000;
     padding: 10px 5%;
@@ -40,7 +35,6 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
 }
 
 .logo a {
@@ -53,27 +47,27 @@ nav {
     vertical-align: middle;
 }
 
-nav ul {
+.nav-links-container ul {
     list-style: none;
     display: flex;
     margin: 0;
     padding: 0;
-    flex-wrap: wrap;
 }
 
-nav ul li {
+.nav-links-container ul li {
     margin-left: 25px;
 }
-nav ul li:first-child {
+
+.nav-links-container ul li:first-child {
     margin-left: 0;
 }
 
-nav ul li a {
+.nav-links-container ul li a {
     color: #ffffff;
     text-decoration: none;
-    font-family: 'Poppins', sans-serif; /* Heading font nav par */
+    font-family: 'Poppins', sans-serif;
     font-size: 15px;
-    font-weight: 400; /* Regular weight nav par */
+    font-weight: 400;
     text-transform: uppercase;
     padding: 15px 5px;
     display: block;
@@ -81,14 +75,64 @@ nav ul li a {
     transition: border-color 0.3s ease, color 0.3s ease;
 }
 
-nav ul li a:hover,
-nav ul li a.active {
+.nav-links-container ul li a:hover,
+.nav-links-container ul li a.active {
     color: #f0a500;
     border-bottom-color: #f0a500;
 }
 
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
 
-/* --- 3. Hero Carousel --- */
+.hamburger {
+    display: block;
+    position: relative;
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    transition: background-color 0s 0.1s linear;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #ffffff;
+    transition: transform 0.2s ease-in-out, top 0.2s 0.2s ease-in-out, bottom 0.2s 0.2s ease-in-out;
+}
+
+.hamburger::before {
+    top: -8px;
+}
+
+.hamburger::after {
+    bottom: -8px;
+}
+
+.nav-active .hamburger {
+    background-color: transparent;
+}
+
+.nav-active .hamburger::before {
+    transform: rotate(45deg);
+    top: 0;
+    transition: top 0.2s ease-in-out, transform 0.2s 0.2s ease-in-out;
+}
+
+.nav-active .hamburger::after {
+    transform: rotate(-45deg);
+    bottom: 0;
+    transition: bottom 0.2s ease-in-out, transform 0.2s 0.2s ease-in-out;
+}
+
 .hero-carousel {
     position: relative;
     width: 100%;
@@ -143,13 +187,13 @@ nav ul li a.active {
 }
 
 .carousel-caption h4 {
-    font-family: 'Roboto', sans-serif; /* Normal font */
+    font-family: 'Roboto', sans-serif;
     font-size: 1rem;
     color: #f0a500;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 10px;
-    font-weight: 700; /* Bold */
+    font-weight: 700;
 }
 
 .carousel-caption h1 {
@@ -160,7 +204,7 @@ nav ul li a.active {
 }
 
 .carousel-caption p {
-    font-family: 'Roboto', sans-serif; /* Normal font */
+    font-family: 'Roboto', sans-serif;
     font-size: clamp(1rem, 2vw, 1.125rem);
     color: #ccc;
     margin-bottom: 30px;
@@ -173,7 +217,7 @@ nav ul li a.active {
     background-color: #f0a500;
     color: #000;
     border: none;
-    font-family: 'Poppins', sans-serif; /* Button par bhi heading font */
+    font-family: 'Poppins', sans-serif;
 }
 .carousel-btn:hover {
     background-color: #fff;
@@ -211,8 +255,6 @@ nav ul li a.active {
     background-color: #f0a500;
 }
 
-
-/* --- Default Button Style --- */
 .btn {
     background-color: #f0a500;
     color: #000000;
@@ -226,7 +268,7 @@ nav ul li a.active {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
     display: inline-block;
     cursor: pointer;
-    font-family: 'Poppins', sans-serif; /* Heading font */
+    font-family: 'Poppins', sans-serif;
 }
 
 .btn:hover {
@@ -235,7 +277,6 @@ nav ul li a.active {
     box-shadow: 0 7px 15px rgba(0, 0, 0, 0.5);
 }
 
-/* --- 4. Featured Games Grid --- */
 .games-grid {
     padding: 60px 5%;
     text-align: center;
@@ -303,11 +344,9 @@ nav ul li a.active {
     font-size: 0.9rem;
     color: #aaa;
     margin-top: auto;
-    font-family: 'Roboto', sans-serif; /* Normal font */
+    font-family: 'Roboto', sans-serif;
 }
 
-
-/* --- 5. Game Details Page --- */
 .game-detail-page {
     padding: 0 5%;
     max-width: 1200px;
@@ -331,7 +370,6 @@ nav ul li a.active {
     border-radius: 0 0 15px 15px;
 }
 
-/* Banners */
 .gta-banner { background-image: url('img/grand-theft-auto-v-banner.jpg'); }
 .mafia-banner { background-image: url('img/Mafia III.png'); }
 .ac-banner { background-image: url('img/5bb776e76041e.png'); }
@@ -387,7 +425,7 @@ nav ul li a.active {
     line-height: 1.7;
     margin-bottom: 20px;
     color: #ccc;
-    font-family: 'Roboto', sans-serif; /* Normal font */
+    font-family: 'Roboto', sans-serif;
 }
 
 .info-box {
@@ -419,7 +457,7 @@ nav ul li a.active {
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 5px;
-    font-family: 'Roboto', sans-serif; /* Normal font */
+    font-family: 'Roboto', sans-serif;
 }
 .info-box ul li:last-child {
     border-bottom: none;
@@ -431,8 +469,8 @@ nav ul li a.active {
     color: #ffffff;
     margin-right: 8px;
     flex-shrink: 0;
-    font-family: 'Poppins', sans-serif; /* Heading font */
-    font-weight: 400; /* Regular weight */
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
 }
 
 .download-btn {
@@ -460,7 +498,6 @@ nav ul li a.active {
     border: 0;
 }
 
-/* --- 6. Footer --- */
 footer {
     background-color: #0a0a0a;
     border-top: 3px solid #f0a500;
@@ -495,7 +532,7 @@ footer {
     color: #aaa;
     line-height: 1.7;
     margin-bottom: 10px;
-    font-family: 'Roboto', sans-serif; /* Normal font */
+    font-family: 'Roboto', sans-serif;
 }
 
 .footer-section ul { list-style: none; padding-left: 0; }
@@ -507,7 +544,7 @@ footer {
     text-decoration: none;
     transition: color 0.3s ease, padding-left 0.3s ease;
     font-size: 0.9rem;
-    font-family: 'Roboto', sans-serif; /* Normal font */
+    font-family: 'Roboto', sans-serif;
 }
 
 .footer-section ul li a:hover {
@@ -521,11 +558,9 @@ footer {
     padding-top: 30px;
     color: #888;
     font-size: 0.8rem;
-    font-family: 'Roboto', sans-serif; /* Normal font */
+    font-family: 'Roboto', sans-serif;
 }
 
-
-/* --- 7. About Page Styling --- */
 .about-page {
     padding: 0 5%;
     max-width: 900px;
@@ -546,11 +581,11 @@ footer {
     line-height: 1.8;
     margin-bottom: 20px;
     color: #ccc;
-    font-family: 'Roboto', sans-serif; /* Normal font */
+    font-family: 'Roboto', sans-serif;
 }
 .content-box p strong {
     color: #ffffff;
-    font-family: 'Poppins', sans-serif; /* Heading font */
+    font-family: 'Poppins', sans-serif;
     font-weight: 700;
 }
 
@@ -584,10 +619,8 @@ footer {
     line-height: 1.7;
     margin-bottom: 10px;
     color: #ccc;
-    font-family: 'Roboto', sans-serif; /* Normal font */
+    font-family: 'Roboto', sans-serif;
 }
-
-/* --- 8. View More & Page 2 Styling --- */
 
 .view-more-container {
     text-align: center;
@@ -609,15 +642,96 @@ footer {
     letter-spacing: 1px;
 }
 
-/* --- 9. Pagination Button Styling --- */
-
 .pagination-container {
     text-align: center;
     margin-top: 70px;
     padding-bottom: 20px;
 }
 
-/* --- 10. MEDIA QUERIES --- */
+.news-page {
+    padding: 50px 5%;
+    max-width: 900px;
+    margin: 40px auto;
+    min-height: 60vh;
+}
+
+.news-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.news-item {
+    background-color: #0f0f0f;
+    border: 1px solid #282828;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+.news-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.news-content {
+    padding: 25px;
+}
+
+.news-content h2 {
+    font-size: 1.5rem;
+    color: #f0a500;
+    margin-bottom: 10px;
+}
+
+.news-meta {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 15px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.news-content p {
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.news-read-more {
+    background-color: transparent;
+    color: #f0a500;
+    border: 1px solid #f0a500;
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.news-read-more:hover {
+    background-color: #f0a500;
+    color: #000;
+    transform: none;
+    box-shadow: none;
+}
+
+@media (min-width: 768px) {
+    .news-item {
+        flex-direction: row;
+    }
+    .news-item img {
+        width: 40%;
+        height: auto;
+        min-height: 220px;
+    }
+    .news-content {
+        width: 60%;
+    }
+}
 
 @media (max-width: 992px) {
     .grid-container {
@@ -628,15 +742,54 @@ footer {
     .carousel-caption h1 { font-size: clamp(2rem, 4.5vw, 3rem); }
     .carousel-caption p { font-size: clamp(0.9rem, 1.8vw, 1rem); }
     .detail-container { gap: 30px; }
-    nav ul { justify-content: center; margin-top: 10px; }
-    nav { justify-content: center; }
     .footer-container { gap: 30px; }
 }
 
 @media (max-width: 768px) {
     header { padding: 10px 15px; }
-    nav ul li { margin-left: 15px; }
-    nav ul li a { font-size: 14px; padding: 10px 3px; }
+    
+    .nav-toggle { display: block; z-index: 1001; } 
+
+    .nav-links-container { 
+        display: none;
+        position: absolute; 
+        top: 100%; 
+        left: 0; 
+        right: 0; 
+        background-color: #0a0a0a; 
+        box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+        z-index: 1000;
+        padding: 15px 0; 
+    }
+    
+    .nav-active .nav-links-container {
+        display: block;
+    }
+
+    .nav-links-container ul { 
+        flex-direction: column; 
+        align-items: center; 
+    }
+    .nav-links-container ul li { 
+        margin-left: 0; 
+        width: 100%; 
+        text-align: center;
+    }
+    .nav-links-container ul li a { 
+        padding: 15px 10px; 
+        border-bottom: 1px solid #222; 
+        border-top: 1px solid #222; 
+        margin-top: -1px; 
+        width: 100%;
+    }
+     .nav-links-container ul li a:hover,
+     .nav-links-container ul li a.active { 
+        border-bottom-color: #222; 
+        border-top-color: #222;
+        background-color: #1a1a1a; 
+        color: #f0a500;
+     }
+
     .hero-carousel { height: 50vh; }
     .carousel-caption { max-width: 100%; text-align: center; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.2)); padding: 30px 15px; bottom: 0; top: unset; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; position: absolute; height: 100%; }
     .carousel-caption h4 { margin-top: auto; }
@@ -656,12 +809,6 @@ footer {
 }
 
 @media (max-width: 576px) {
-    nav ul { flex-direction: column; width: 100%; align-items: center; }
-    nav ul li { margin-left: 0; width: 100%; text-align: center; border-bottom: 1px solid #333; }
-     nav ul li:last-child { border-bottom: none; }
-    nav ul li a { padding: 12px 5px; border-bottom: none; }
-     nav ul li a:hover,
-     nav ul li a.active { border-bottom-color: transparent; background-color: #111; }
     .logo img { height: 40px; }
     .games-grid h2, .page-title-section h2, .page-main-title { font-size: 1.8rem; }
     .game-title { font-size: 1.8rem; }
